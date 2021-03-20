@@ -4,16 +4,27 @@ The NZT has a modular structure.
 Each module has it's own container (PSR-11) and infrastructure (controllers, models, views ...)
 ## Loader
 `Loader::$baseFileName` first part of filename used in Loader menthods (baseFileName + filename + baseFileExt)
+
 `Loader::$baseFileExt` last part of filename in Loader menthods (baseFileName + filename + baseFileExt)
+
 `Loader::includeOnce(string $filename)` simular to php `include_once()`
+
 `Loader::include(string $filename)` simular to php `include()`
+
 `Loader::requireOnce(string $filename)` simular to php `require_once()`, raises `EloaderFileNotFound`
+
 `Loader::require(string $filename)` simular to php `require()`, raises `EloaderFileNotFound`
+
 `Loader::includeFiles(array $fileNames): ?array` multiple `include_once()`
+
 `Loader::requireFiles(array $fileNames): ?array` multiple `require_once()`, raises `EloaderFileNotFound`
+
 `Loader::load(string $className): object` create new class with name `$className`, raises `EloaderClassNotFound`
+
 `Loader::execute(string $className, string $methodName, array $methodParams = [])` create new class with name `$className` and run class method `$methodName` with params $methodParams, raises `EloaderClassNotFound` and `EloaderClassMethodNotFound`
+
 `Loader::getFunction($classNameOrObject, string $methodName)` return single callable from class `$classNameOrObject` and method `$methodName`, raises `EloaderClassNotFound` and `EloaderClassMethodNotFound`
+
 ### Modules part
 `Loader::includeModules(string $path, string $filename): array` run all modules and wont stop on error
 `Loader::requireModules(string $path, string $filename): array` run all modules and raise `EloaderModuleNotFound` exception on error
@@ -60,7 +71,7 @@ $router->route([
 ]);
 ```
 *@default* - if there is empty '' path
-*@defnotfoundault* - if path is not found
+*@notfound* - if path is not found
 ## Container
 Container uses a dependency injection pattern and implements PSR-11
 Container of each *module* extends `BaseContainer`
