@@ -238,3 +238,5 @@ class UserContainer extends BaseContainer {
 run `cd tests` and `./phpunit .`
 ## Uses
 PHPUnit from https://phpunit.de/
+## Requires
+PHP 7.4
